@@ -1,6 +1,5 @@
 -- Queries by Andre da Silva Mano | a.dasilvamano[at]utwente.nl
 
-
 --------------------------
 -- BLOCK 0: PREPARATION --
 --------------------------
