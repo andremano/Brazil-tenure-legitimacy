@@ -7306,14 +7306,13 @@ end;
 ---------------------------------------------------------------------
 
 begin;
-begin;
-DROP TABLE IF EXISTS outputs.public_land_merged;
+DROP TABLE IF EXISTS outputs.public_land_merged CASCADE;
 
 CREATE TABLE outputs.public_land_merged AS
 SELECT
   row_number() OVER (ORDER BY nm_uf)::numeric AS id,
   nm_uf,
-  ST_Multi(geom)::geometry(MULTIPOLYGON, ST_SRID(geom)) AS geom
+  ST_Multi(geom) AS geom
 FROM (
   SELECT nm_uf, geom FROM outputs.public_land_amazonas
   UNION ALL SELECT nm_uf, geom FROM outputs.public_land_amapa
@@ -7358,4 +7357,4 @@ end;
 
 
 ANALYZE outputs.public_land_merged;
-end,
+end;
