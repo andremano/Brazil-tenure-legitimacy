@@ -1,7 +1,7 @@
 -- Queries developed by Andre da Silva Mano | a.dasilvamano[at]utwente.nl | 2025
 
 -----------------------------------------------------------------------------
--- BLOCK 6 : Private land fully compliant (LEVEL 2): SIGEF and CAR overlap --
+-- BLOCK 8 : Private land fully compliant (LEVEL 2): SIGEF and CAR overlap --
 -----------------------------------------------------------------------------
 
 
@@ -53,7 +53,7 @@
 
 
 --------------------------------------------------------------------------------------------
--- BLOCK 7 : Private land fully compliant (LEVEL 1): SIGEF and CAR overlap + SNCI overlap --
+-- BLOCK 9 : Private land fully compliant (LEVEL 1): SIGEF and CAR overlap + SNCI overlap --
 --------------------------------------------------------------------------------------------
 
 
@@ -101,7 +101,7 @@
 		
 		
 ------------------------------------------------------------------------------
--- BLOCK 8 : Create a table with SIGEF parcels that do not overlap with CAR --
+-- BLOCK 10 : Create a table with SIGEF parcels that do not overlap with CAR --
 ------------------------------------------------------------------------------
 
 
@@ -136,7 +136,7 @@
 	
 
 -------------------------------------------------------------------------------------------------------------------------
--- BLOCK 9 : Remove from the previous set, the sigef parcels that are  overlaping with outputs.sigef_car_snci table --
+-- BLOCK 11 : Remove from the previous set, the sigef parcels that are  overlaping with outputs.sigef_car_snci table --
 -------------------------------------------------------------------------------------------------------------------------
 
 
@@ -150,7 +150,7 @@
 		
 		
 -------------------------------------------------------------------------------
--- BLOCK 10 : Create a table with CAR parcels that do not overlap with SIGEF --
+-- BLOCK 12 : Create a table with CAR parcels that do not overlap with SIGEF --
 -------------------------------------------------------------------------------
 
 
@@ -184,7 +184,7 @@
 		
 
 -------------------------------------------------------------------------------------------------
--- BLOCK 11 : SIGEF parcels overlapping SNCI parcels that DO NOT overlap CAR parcels (LEVEL 3) --
+-- BLOCK 13 : SIGEF parcels overlapping SNCI parcels that DO NOT overlap CAR parcels (LEVEL 3) --
 -------------------------------------------------------------------------------------------------
 
 
@@ -229,7 +229,7 @@
 		
 		
 -----------------------------------------------------------------------------
--- BLOCK 12 : SIGEF parcels that do not overlap with CAR or SNCI (LEVEL 4) --
+-- BLOCK 14 : SIGEF parcels that do not overlap with CAR or SNCI (LEVEL 4) --
 -----------------------------------------------------------------------------	
 
 
@@ -241,7 +241,7 @@
 	This is for Postgres"
 	*/
 		
-				begin;
+		begin;
 							
 			CREATE INDEX ON raw_data.sigef_20250918 (parcela_co);
 			CREATE INDEX ON outputs.sigef_car (sigef_id);
@@ -283,7 +283,7 @@
 		
 
 --------------------------------------------------------
--- BLOCK 13 : CAR parcels overlap with SNCI (LEVEL 4) --
+-- BLOCK 15 : CAR parcels overlap with SNCI (LEVEL 4) --
 --------------------------------------------------------	
 
 
@@ -332,7 +332,7 @@
 		
 	*/
 ----------------------------------------------------------------------------------------
--- BLOCK 14 : SNCI parcels that do not overlap SIGEF+CAR or do not overlap SIGEF only --
+-- BLOCK 16 : SNCI parcels that do not overlap SIGEF+CAR or do not overlap SIGEF only --
 ----------------------------------------------------------------------------------------
 
 
@@ -382,7 +382,7 @@
 		
 		
 --------------------------------------------------------
--- BLOCK 15 : SNCI parcels that overlap CAR (LEVEL 5) --
+-- BLOCK 17 : SNCI parcels that overlap CAR (LEVEL 5) --
 --------------------------------------------------------
 
 
@@ -426,7 +426,7 @@
 		
 
 -------------------------------------------------------------------------------
--- BLOCK 16 : SNCI parcels that do not overlap with CAR (or SIGEF) (LEVEL 6) --
+-- BLOCK 18 : SNCI parcels that do not overlap with CAR (or SIGEF) (LEVEL 6) --
 -------------------------------------------------------------------------------
 
 
@@ -468,7 +468,7 @@
 		
 
 ------------------------------------------------------------------------------
--- BLOCK 17 : CAR parcels that do not overlap with SIGEF or SNCI (LEVEL 7) --
+-- BLOCK 19 : CAR parcels that do not overlap with SIGEF or SNCI (LEVEL 7) --
 ------------------------------------------------------------------------------
 
 
@@ -500,7 +500,7 @@
 		end;
 		
 ------------------------------------------------------------------------------------------------------
--- BLOCK 18 : Remove from table sigef_car, the (sigef) parcels that also occur under sigef_car_snig --
+-- BLOCK 20 : Remove from table sigef_car, the (sigef) parcels that also occur under sigef_car_snig --
 ------------------------------------------------------------------------------------------------------
 
 
@@ -516,7 +516,7 @@ WHERE EXISTS (
 
 
 ---------------------------------------------------------------------
--- BLOCK 18 : Overall compliance table ignonring boundary overlaps --
+-- BLOCK 21 : Overall compliance table ignonring boundary overlaps --
 ---------------------------------------------------------------------
 
 
@@ -637,7 +637,7 @@ WHERE EXISTS (
 	
 	
 ---------------------------------------------------------------------
--- BLOCK 19 : Provisional area calculation --
+-- BLOCK 22 : Provisional area calculation --
 ---------------------------------------------------------------------
 
 
